@@ -1,9 +1,21 @@
 <h1>Here are all the details of the restaurant</h1>
 
-<h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category %></p>
+
+<%= link_to 'add review', new_restaurant_review_path(@restaurant), class: 'btn btn-warning' %>
+
+<div>
+  <% @restaurant.reviews.each do |review| %>
+    <div>
+      <h6><%= review.content %></h6>
+      <p><%= review.rating %></p>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Back to list', restaurants_path, class: 'btn btn-warning' %>
+
 
