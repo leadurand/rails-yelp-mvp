@@ -1,21 +1,26 @@
-<h1>Here are all the details of the restaurant</h1>
+<div class="container text-center">
+  <h1>Here are all the details of the restaurant</h1>
 
-  <h2><%= @restaurant.name %></h2>
-  <p><%= @restaurant.address %></p>
-  <p><%= @restaurant.phone_number %></p>
-  <p><%= @restaurant.category %></p>
+  <div>
+    <h2><%= @restaurant.name %></h2>
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.phone_number %></p>
+    <p><%= @restaurant.category %></p>
+  </div>
 
-<%= link_to 'add review', new_restaurant_review_path(@restaurant), class: 'btn btn-warning' %>
+  <div>
+    <%= link_to 'add review', new_restaurant_review_path(@restaurant), class: 'btn btn-info' %>
+    <h3>All reviews :</h3>
+    <% @restaurant.reviews.each do |review| %>
+      <div>
+        <h6>Rating : <%= '✭' * review.rating %></h6>
+        <h5><%= review.content %></h5>
+      </div>
+    <% end %>
+  </div>
 
-<div>
-  <% @restaurant.reviews.each do |review| %>
-    <div>
-      <h6><%= review.content %></h6>
-      <p><%= review.rating %></p>
-    </div>
-  <% end %>
+  <div>
+    <%= link_to 'Back to list', restaurants_path, class: 'btn btn-warning' %>
+  </div>
 </div>
-
-<%= link_to 'Back to list', restaurants_path, class: 'btn btn-warning' %>
-
 

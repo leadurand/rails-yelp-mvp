@@ -1,11 +1,13 @@
+<div class="container text-center">
 <h1>All Restaurants</h1>
 
 <%= link_to 'Add a restaurant', new_restaurant_path,class: 'btn btn-info' %>
 
 <% @restaurants.each do |restaurant| %>
   <div>
-    <h2><%= restaurant.name %></h2>
+    <h3><%= restaurant.name %></h3>
     <p><%= restaurant.category %></p>
     <%= link_to 'details', restaurant_path(restaurant),class: 'btn btn-warning' %>
   </div>
 <% end %>
+</div>
